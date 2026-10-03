@@ -1,0 +1,26 @@
+
+
+h1 {
+    color:blue
+}
+
+.my-paragraph-id {
+    color:pink
+}
+
+#my-second-paragraph-id {
+    color:yellow
+}
+
+h1, p {
+    color:green
+}
+
+section p {
+    font-weight: bolder
+}
+
+button:hover {
+    background-color: blue;
+    color: white;
+}
