@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Notes - Console Tests</title>
+</head>
+<body>
+
+  <h1>JavaScript Notes App - Open the Developer Console (F12)</h1>
+
+  <!-- Load notes.js -->
+  <script src="notes.js"></script>
+
+  <!-- Run function tests with console.log -->
+  <script>
+    console.log("=== TESTING searchNotes ===");
+    // Normal Case: Query matches one or more notes
+    console.log("Search 'javascript':", searchNotes(notes, "javascript")); 
+    // Expected: [{ id: 4, text: "Revise JavaScript arrays", category: "study" }]
+
+    // Edge Case: Query returns no matching results
+    console.log("Search 'python':", searchNotes(notes, "python")); 
+    // Expected: []
+
+
+    console.log("\n=== TESTING longestNote ===");
+    // Normal Case: Finds the note with the longest text string
+    console.log("Longest note:", longestNote(notes)); 
+    // Expected: { id: 3, text: "Email the project report to Grace", category: "work" }
+
+    // Edge Case: Empty array passed as parameter
+    console.log("Longest note (empty array):", longestNote([])); 
+    // Expected: null
+
+
+    console.log("\n=== TESTING countByCategory ===");
+    // Normal Case: Counts frequencies of categories present in notes array
+    console.log("Count by category:", countByCategory(notes)); 
+    // Expected: { personal: 2, study: 2, work: 1 }
+
+    // Edge Case: Empty array has no category counts
+    console.log("Count by category (empty array):", countByCategory([])); 
+    // Expected: {}
+
+
+    console.log("\n=== TESTING getSummary ===");
+    // Normal Case: Multiple notes present (plural "notes")
+    console.log("Summary (multiple notes):", getSummary(notes)); 
+    // Expected: "You have 5 notes (personal: 2, study: 2, work: 1)."
+
+    // Edge Case: Exactly one note present (singular "note")
+    const singleNoteArray = [{ id: 1, text: "Buy milk", category: "personal" }];
+    console.log("Summary (single note):", getSummary(singleNoteArray)); 
+    // Expected: "You have 1 note (personal: 1)."
+
+
+    console.log("\n=== TESTING isDuplicate ===");
+    // Normal Case: Exact text match ignoring leading/trailing spaces and case
+    console.log("Is duplicate (' call mum '):", isDuplicate(notes, " call mum ")); 
+    // Expected: true
+
+    // Edge Case: Unique text that does not exist in array
+    console.log("Is duplicate ('Go for a run'):", isDuplicate(notes, "Go for a run")); 
+    // Expected: false
+
+
+    console.log("\n=== TESTING addNote ===");
+    // Normal Case: Adding a valid unique note
+    console.log("Add valid note:", addNote(notes, "Prepare presentation", "work")); 
+    // Expected: { success: true, note: { id: 6, text: "Prepare presentation", category: "work" } }
+
+    // Edge Case: Attempting to add a duplicate note
+    console.log("Add duplicate note:", addNote(notes, "Buy milk and bread", "personal")); 
+    // Expected: { success: false, reason: "Duplicate note detected." }
+
+    // Edge Case: Attempting to add with whitespace-only text
+    console.log("Add empty text note:", addNote(notes, "   ", "work")); 
+    // Expected: { success: false, reason: "Text cannot be empty." }
+
+    // Edge Case: Attempting to add with missing category
+    console.log("Add missing category note:", addNote(notes, "Walk the dog", "")); 
+    // Expected: { success: false, reason: "Category cannot be empty." }
+  </script>
+
+</body>
+</html>
