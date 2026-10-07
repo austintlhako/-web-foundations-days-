@@ -1,0 +1,102 @@
+/* Define default (light) theme variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --textarea-bg: #f9f9f9;
+  --textarea-border: #cccccc;
+  --btn-bg: #e5e7eb;
+  --btn-text: #1f2937;
+  --btn-hover: #d1d5db;
+}
+
+/* Redefine variables for dark theme */
+body.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #e5e5e5;
+  --textarea-bg: #2d2d2d;
+  --textarea-border: #555555;
+  --btn-bg: #374151;
+  --btn-text: #f9fafb;
+  --btn-hover: #4b5563;
+}
+
+/* Base Styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.controls-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+/* Form & Input Styles */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--textarea-bg);
+  color: var(--text-color);
+  border: 1px solid var(--textarea-border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 2px solid #3b82f6;
+  border-color: transparent;
+}
+
+/* Buttons */
+button {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--btn-hover);
+}
+
+/* Counters Layout */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Required Counter Warning Classes */
+.warning {
+  color: orange;
+}
+
+.over {
+  color: red;
+  font-weight: bold;
+}
